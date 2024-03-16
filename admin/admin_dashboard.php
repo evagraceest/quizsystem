@@ -22,12 +22,8 @@ include('../auth_session.php');
             <hr>
             <h3>View/Update/Delete/Search Users Information.</h3>
             <button class="quizbtn" onclick="document.location='student_list.php'">VIEW INFORMATION</button> <br>
-            <h3>Search Questions</h3>
+            <h3>Questions</h3>
             <button class="quizbtn" onclick="document.location='questions.php'">VIEW QUESTIONS</button> <br>
-            <h3>Update Questions</h3>
-            <button class="quizbtn" onclick="document.location='admin_updateques.php'">VIEW QUESTIONS</button> <br>
-            <h3>Delete Questions</h3>
-            <button class="quizbtn" onclick="document.location='admin_deleteques.php'">VIEW QUESTIONS</button> <br>
             <br> <button class="quizbtn" onclick="document.location='logout_admin.php'">LOGOUT</button>
         </div>
 

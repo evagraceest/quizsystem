@@ -51,6 +51,20 @@ input[name="qs"] {
   background-color: #ff884b;
   color: #fcf9be;
 }
+.deletebtn {
+  padding: 10px 20px;
+  margin: 7px 0;
+  border: none;
+  cursor: pointer;
+  width: 80%;
+  background-color: #f44336;
+  border-radius: 8px;
+  color: white;
+}
+.deletebtn:hover {
+  background-color: #d83529;
+  color: #d1aba9;
+}
 
 .dashbtn {
   padding: 13px 20px;

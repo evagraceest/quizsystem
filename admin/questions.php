@@ -43,10 +43,12 @@ include('../function/functions.php');
                             <td>
                                 <!-- Button modal -->
                                 <button type="button" class="updatebtn" data-bs-toggle="modal" data-bs-target="#updateModal<?= $item['question_id']; ?>">Update</button>
+                                <button type="button" class="deletebtn" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $item['question_id']; ?>">Delete</button>
+
                             </td>
                         </tr>
 
-                        <!-- Modal -->
+                        <!-- Edit Modal -->
                         <div class="modal fade" id="updateModal<?= $item['question_id']; ?>" tabindex="-1" aria-labelledby="updateModalLabel<?= $item['id']; ?>" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -69,6 +71,28 @@ include('../function/functions.php');
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                             <button type="submit" name="btn_question" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Delete Modal -->
+                        <div class="modal fade" id="deleteModal<?= $item['question_id']; ?>" tabindex="-1" aria-labelledby="deleteModalLabel<?= $item['id']; ?>" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="updateModalLabel">Delete Question</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form action='crud.php' method='post'>
+                                        <input type="hidden" name="question_id" value="<?= $item['question_id']; ?>">
+                                        <div class="modal-body">
+                                            Are you sure you want to delete this question?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" name="btn_delete_question" class="btn btn-primary">Save changes</button>
                                         </div>
                                     </form>
                                 </div>

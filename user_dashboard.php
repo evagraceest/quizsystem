@@ -6,7 +6,7 @@ include("auth_session.php");
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="css/welcome.css" /><!-- connected sa CSS -->
+  <link rel="stylesheet" type="text/css" href="assets/css/design.css" /><!-- connected sa CSS -->
   <title>Welcome</title>
 </head>
 

@@ -51,3 +51,43 @@ if (isset($_POST['btn_update'])) {
         echo '</script>';
     }
 }
+elseif (isset($_POST['btn_delete'])) {
+    //check if the form has been submitted
+    $user_id = $_POST['user_id'];
+    $query = "DELETE FROM tb_users WHERE user_id=$user_id";
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        echo '<script type="text/javascript">';
+        echo 'alert("Deleted Successfully!")';
+        echo '</script>';
+
+        echo "<script>
+                document.location.href = 'student_list.php';
+            </script>";
+    } else {
+        echo '<script type="text/javascript">';
+        echo 'alert("Failed to Delete!")';
+        echo '</script>';
+    }
+} elseif (isset($_POST['btn_delete_question'])) {
+    //check if the form has been submitted
+    $question_id = $_POST['question_id'];
+    $query = "DELETE FROM tb_question WHERE question_id=$question_id";
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        echo '<script type="text/javascript">';
+        echo 'alert("Deleted Successfully!")';
+        echo '</script>';
+
+        echo "<script>
+                document.location.href = 'questions.php';
+            </script>";
+    } else {
+        echo '<script type="text/javascript">';
+        echo 'alert("Failed to Delete!")';
+        echo '</script>';
+    }
+}
+?>

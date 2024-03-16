@@ -1,0 +1,40 @@
+body {
+    text-align: center;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(150deg, #FFD8A9, #E38B29,#FFD8A9);
+    
+}
+.center
+{
+    text-align: center;
+}
+h1 {
+    font-size: 40px;
+    font-family:'Georgia';
+    color:#AC4425;
+}
+p{
+    font-size: 15px;
+    font-family:'Georgia';
+    color: #AC4425;   
+}
+ .button {
+    background-color: #AC4425;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    color: white;order-radius: 8px;
+
+  }
+  .button:hover {
+    background-color: #FFD384;
+    color: brown;
+  }

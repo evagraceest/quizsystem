@@ -89,5 +89,68 @@ elseif (isset($_POST['btn_delete'])) {
         echo 'alert("Failed to Delete!")';
         echo '</script>';
     }
+} elseif (isset($_POST['add_quiz'])) {
+    //check if the form has been submitted
+    $quiz_name = $_POST['quiz_name'];
+    $points = $_POST['points']; //galing sa input tag sa name
+
+    $query = "INSERT INTO tb_quiz (quiz_name, points) VALUES ('$quiz_name', '$points')";
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        echo '<script type="text/javascript">';
+        echo 'alert("Added Successfully!")';
+        echo '</script>';
+
+        echo "<script>
+                document.location.href = 'quiz_list.php';
+            </script>";
+    } else {
+        echo '<script type="text/javascript">';
+        echo 'alert("Failed to Add!")';
+        echo '</script>';
+    }
+}
+elseif (isset($_POST['update_quiz'])) {
+    //check if the form has been submitted
+    $quiz_id = $_POST['quiz_id'];
+    $quiz_name = $_POST['quiz_name'];
+    $points = $_POST['points']; //galing sa input tag sa name
+
+    $query = "UPDATE tb_quiz SET quiz_name = '$quiz_name', points = '$points' WHERE quiz_id=$quiz_id";
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        echo '<script type="text/javascript">';
+        echo 'alert("Updated Successfully!")';
+        echo '</script>';
+
+        echo "<script>
+                document.location.href = 'quiz_list.php';
+            </script>";
+    } else {
+        echo '<script type="text/javascript">';
+        echo 'alert("Failed to Update!")';
+        echo '</script>';
+    }
+} elseif (isset($_POST['btn_delete_quiz'])) {
+    //check if the form has been submitted
+    $quiz_id = $_POST['quiz_id'];
+    $query = "DELETE FROM tb_quiz WHERE quiz_id=$quiz_id";
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        echo '<script type="text/javascript">';
+        echo 'alert("Deleted Successfully!")';
+        echo '</script>';
+
+        echo "<script>
+                document.location.href = 'quiz_list.php';
+            </script>";
+    } else {
+        echo '<script type="text/javascript">';
+        echo 'alert("Failed to Delete!")';
+        echo '</script>';
+    }
 }
 ?>

@@ -54,6 +54,7 @@ include('../function/functions.php');
                                         <td><?= $item['points']; ?></td>
                                         <td>
                                             <!-- Button modal -->
+                                            <a href="manage_question.php?quiz_id=<?= $item['quiz_id']; ?>" class="btn addbtn">Mange Questions</a>
                                             <button type="button" class="updatebtn" data-bs-toggle="modal" data-bs-target="#updateModal<?= $item['quiz_id']; ?>">Update</button>
                                             <button type="button" class="deletebtn" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $item['quiz_id']; ?>">Delete</button>
 

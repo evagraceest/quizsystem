@@ -29,27 +29,6 @@ if (isset($_POST['btn_update'])) {
         echo 'alert("Failed to Update!")';
         echo '</script>';
     }
-} elseif (isset($_POST['btn_question'])) {
-    //check if the form has been submitted
-    $question_id = $_POST['question_id'];
-    $ques = $_POST['questions']; //galing sa input tag sa name
-
-    $query = "UPDATE tb_question SET question_id = '$question_id', questions = '$ques' WHERE question_id=$question_id";
-    $result = mysqli_query($conn, $query);
-
-    if ($result) {
-        echo '<script type="text/javascript">';
-        echo 'alert("Updated Successfully!")';
-        echo '</script>';
-
-        echo "<script>
-                document.location.href = 'questions.php';
-            </script>";
-    } else {
-        echo '<script type="text/javascript">';
-        echo 'alert("Failed to Update!")';
-        echo '</script>';
-    }
 }
 elseif (isset($_POST['btn_delete'])) {
     //check if the form has been submitted
@@ -152,5 +131,101 @@ elseif (isset($_POST['update_quiz'])) {
         echo 'alert("Failed to Delete!")';
         echo '</script>';
     }
+} elseif (isset($_POST['add_question'])) {
+    //check if the form has been submitted
+    $question = $_POST['question'];
+    $quiz_id = $_POST['quiz_id']; //galing sa input tag sa name
+
+    $query = "INSERT INTO tb_question (question, quiz_id) VALUES ('$question', '$quiz_id')";
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        echo '<script type="text/javascript">';
+        echo 'alert("Added Successfully!")';
+        echo '</script>';
+
+        echo "<script>
+                window.location.href = 'manage_question.php?quiz_id=$quiz_id';
+            </script>";
+    } else {
+        echo '<script type="text/javascript">';
+        echo 'alert("Failed to Add!")';
+        echo '</script>';
+    }
+    $question_id = mysqli_insert_id($conn); // get the last inserted question_id
+
+    // Loop through the choices and insert them into tb_choice
+    foreach ($_POST['choices'] as $key => $choice) {
+        $is_right = isset($_POST['is_right'][$key]) ? $_POST['is_right'][$key] : 0;
+        $query = "INSERT INTO tb_choices (question_id, choice, is_right) VALUES ('$question_id', '$choice', '$is_right')";
+        $result = mysqli_query($conn, $query);
+
+        if (!$result) {
+            echo '<script type="text/javascript">';
+            echo 'alert("Failed to Add Choices!")';
+            echo '</script>';
+        }
+    }
 }
+elseif (isset($_POST['update_question'])) {
+    //check if the form has been submitted
+    $question_id = $_POST['question_id'];
+    $question = $_POST['question'];
+    $quiz_id = $_POST['quiz_id']; //galing sa input tag sa name
+
+    $query = "UPDATE tb_question SET question = '$question', quiz_id = '$quiz_id' WHERE question_id=$question_id";
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        echo '<script type="text/javascript">';
+        echo 'alert("Updated Successfully!")';
+        echo '</script>';
+
+        echo "<script>
+                window.location.href = 'manage_question.php?quiz_id=$quiz_id';
+            </script>";
+    } else {
+        echo '<script type="text/javascript">';
+        echo 'alert("Failed to Update!")';
+        echo '</script>';
+    }
+    // Loop through the choices and insert them into tb_choice
+    foreach ($_POST['choices'] as $key => $choice) {
+        $is_right = isset($_POST['is_right'][$key]) ? $_POST['is_right'][$key] : 0;
+        $choice_id = $_POST['choice_id'][$key];
+        if ($choice_id == 0) {
+            $query = "INSERT INTO tb_choices (question_id, choice, is_right) VALUES ('$question_id', '$choice', '$is_right')";
+        } else {
+            $query = "UPDATE tb_choices SET choice = '$choice', is_right = '$is_right' WHERE choice_id=$choice_id";
+        }
+        $result = mysqli_query($conn, $query);
+
+        if (!$result) {
+            echo '<script type="text/javascript">';
+            echo 'alert("Failed to Add Choices!")';
+            echo '</script>';
+        }
+    }
+} elseif (isset($_POST['btn_delete_choice'])) {
+    //check if the form has been submitted
+    $choice_id = $_POST['choice_id'];
+    $quiz_id = $_POST['quiz_id'];
+    $query = "DELETE FROM tb_choices WHERE choice_id=$choice_id";
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        echo '<script type="text/javascript">';
+        echo 'alert("Deleted Successfully!")';
+        echo '</script>';
+
+        echo "<script>
+                window.location.href = 'manage_question.php?quiz_id=$quiz_id';
+            </script>";
+    } else {
+        echo '<script type="text/javascript">';
+        echo 'alert("Failed to Delete!")';
+        echo '</script>';
+    }
+}
+
 ?>

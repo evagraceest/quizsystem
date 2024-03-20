@@ -24,14 +24,14 @@
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
                     <i class="lni lni-protection"></i>
-                    <span>Questions</span>
+                    <span>Quiz</span>
                 </a>
                 <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a href="questions.php" class="sidebar-link">Manage Questions</a>
+                        <a href="quiz_list.php" class="sidebar-link">Manage Quiz</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">Manage Products</a>
+                        <a href="#" class="sidebar-link">Manage Questions</a>
                     </li>
                 </ul>
             </li>

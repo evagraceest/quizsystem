@@ -46,7 +46,7 @@ if ($result->num_rows > 0) {
         <div class="main p-3">
             <div id="page-content-wrapper">
                 <header>
-                    <h1>Dashboard</h1>
+                    <h1>Dashboarddd</h1>
                 </header>
                 <br>
                 <div class="container">

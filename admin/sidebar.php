@@ -10,20 +10,20 @@
         </div>
         <ul class="sidebar-nav">
             <li class="sidebar-item">
-                <a href="example.php" class="sidebar-link">
+                <a href="dashboard.php" class="sidebar-link">
                     <i class="lni lni-user"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li class="sidebar-item">
                 <a href="student_list.php" class="sidebar-link">
-                    <i class="lni lni-agenda"></i>
+                    <i class="lni lni-users"></i>
                     <span>List of Students</span>
                 </a>
             </li>
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                    <i class="lni lni-protection"></i>
+                    <i class="lni lni-book"></i>
                     <span>Quiz</span>
                 </a>
                 <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">

@@ -61,7 +61,7 @@ if (isset($_POST['regis'])) {
     $adminlogin_result = mysqli_query($conn, $adminlogin_query);
 
     if (mysqli_num_rows($adminlogin_result) > 0) {
-      echo "<script>window.open('admin/student_list.php','_self')</script>";
+      echo "<script>window.open('admin/dashboard.php','_self')</script>";
       $_SESSION['username'] = $un;
     } else {
       echo "<script>alert('Username or Password is incorrect!')</script>";
